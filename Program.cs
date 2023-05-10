@@ -148,7 +148,7 @@ namespace Hogwartz_hoseynzadeh2
                                         if (Students[StudentLoginNumber].Ticket)
                                         {
                                             Students[StudentLoginNumber].Ticket = false;
-                                            Students[StudentLoginNumber].IsHeInHogwartz = true;
+                                            Students[StudentLoginNumber].IsHeInHogwartz = !Students[StudentLoginNumber].IsHeInHogwartz;
                                             Console.ForegroundColor = ConsoleColor.Green;
                                             Console.WriteLine("\n\nYou are in the train. You will be in destination soon!");
                                             Console.ForegroundColor = ConsoleColor.White;

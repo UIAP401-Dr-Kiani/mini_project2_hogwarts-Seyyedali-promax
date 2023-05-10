@@ -328,7 +328,7 @@ namespace Hogwartz_hoseynzadeh2
             Console.WriteLine($"You were born in {Stu.BirthYear}.");
             Console.WriteLine($"You are {Stu.Race} and in {Stu.HisGroup.Groupname} group.");
             Console.WriteLine($"You have a cute {Stu.pet}.");
-            Console.WriteLine($"Your dorm stati code is {Stu.DormOfStudent.StaticCode}.");
+            Console.WriteLine($"Your dorm static code is {Stu.DormOfStudent.StaticCode}.");
             Console.ReadKey();
             Console.Clear();
         }

@@ -175,8 +175,8 @@ namespace Hogwartz_hoseynzadeh2
                             Program.Students[Program.Dombledour.StudentOfDemands[i]].Letters.Add("Dombledour: Your request about ticket rejected.");
                             break;
                     }
-                    Program.MyMethods.DelayRerun(3);
                 }
+                    Program.MyMethods.DelayRerun(3);
                 Program.Dombledour.Letters.Clear();
                 Program.Dombledour.StudentOfDemands.Clear();
             }
