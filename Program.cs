@@ -166,8 +166,16 @@ namespace Hogwartz_hoseynzadeh2
                                         Console.Clear();
                                         break;
                                     case 5:
-                                        Students[StudentLoginNumber].ChooseCourse(Students[StudentLoginNumber],StudentLoginNumber);
-                                        MyMethods.DelayRerun(3);
+                                        if (Cources.Count == 0)
+                                        {
+                                            Console.WriteLine("We have not any presented course yet.");
+
+                                        }
+                                        else
+                                        {
+                                            Students[StudentLoginNumber].ChooseCourse(Students[StudentLoginNumber], StudentLoginNumber);
+                                        }
+                                        MyMethods.DelayRerun(5);
                                         break;
                                     case 6:
                                         Students[StudentLoginNumber].HomeworkProcess(StudentLoginNumber);

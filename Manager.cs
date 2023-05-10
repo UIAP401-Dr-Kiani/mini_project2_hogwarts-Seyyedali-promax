@@ -136,26 +136,24 @@ namespace Hogwartz_hoseynzadeh2
                     case 0:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("\nProfessor Snape:\nHello Dombledour.The school is a bit suspicious.\nSeveral Hogwarts students have fainted. I think he's back!\nVOLDEMORT!");
-                        Program.MyMethods.DelayRerun(20);
                         break;
                     case 1:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("\nProfessor Snape:\nHello Dombledour.I think he is a gifted student.\nLegends say that he is the only one who can defeat the Dark Lord.\nHe has all the hallmarks of the legendary hero.\nHarry Potter!");
-                        Program.MyMethods.DelayRerun(20);
                         break;
                     case 2:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("\nProfessor Snape:\nHello Dombledour. I was able to infiltrate the Dark Lord's army. According to the information obtained,\nhe has seven Horcrux.");
-                        Program.MyMethods.DelayRerun(20);
                         break;
                     case 3:
                         Console.ForegroundColor = ConsoleColor.DarkBlue;
                         Console.WriteLine("\nProfessor Snape:\nHello Harry potter! Dumbledore said he gave you his account password.\nI know you are very angry with me after Dumbledore's death!\nBut I did not betray him.\nThe only way to infiltrate the Dark Army was to kill Dumbledore.\nThis was his own suggestion!\nforgive me.\nFrom Cedros Snape.");
-                        Program.MyMethods.DelayRerun(30);
                         break;
                 }
                 Console.ForegroundColor = ConsoleColor.White;
-
+                Console.WriteLine("\nPress Enter to exit.");
+                Console.ReadKey();
+                Console.Clear();
             }
             else
             {

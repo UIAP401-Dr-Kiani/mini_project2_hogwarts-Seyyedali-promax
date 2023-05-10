@@ -10,7 +10,8 @@ namespace Hogwartz_hoseynzadeh2
     class Student : AouthorizedHuman
     {
         public string[] Actions = new string[6] { "Read my letters.", "Give a ticket.", "Boarding the Train.", "Choose my Courses.", "Doing my homeworks.", "Exit" };
-        public string[] PassedCourses = new string[10];
+        public string[] PassedCourses = new string[4];
+        public int PassedCoursesInt = 0;
         public int NumberOfTerm = 1;
         public bool Ticket = false;
         public bool IsHeInHogwartz = false;
@@ -145,34 +146,49 @@ namespace Hogwartz_hoseynzadeh2
                 }
                 break;
             }
-            switch (ChooseflowerInt)
-            {
-                case 1:
-                    Program.Students[StudentNumber].BlueFlower += HowmuchInt;
-                    break;
-                case 2:
-                    Program.Students[StudentNumber].GrayFlower += HowmuchInt;
-                    break;
-                case 3:
-                    Program.Students[StudentNumber].RedFlower += HowmuchInt;
-                    break;
-                case 4:
-                    Program.Students[StudentNumber].YellowFlower += HowmuchInt;
-                    break;
-                case 5:
-                    Program.Students[StudentNumber].GreenFlower += HowmuchInt;
-                    break;
-                case 6:
-                    Program.Students[StudentNumber].PinkFlower += HowmuchInt;
-                    break;
-                case 7:
-                    Program.Students[StudentNumber].SunFlower += HowmuchInt;
-                    break;
-            }
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("\nThe plants picked up successfuly.");
-            Console.ForegroundColor = ConsoleColor.White;
+            int[] Flowers = new int[7] {Program.Garden.BlueFlower, Program.Garden.GrayFlower, Program.Garden.RedFlower, Program.Garden .YellowFlower, Program.Garden .GreenFlower, Program.Garden .PinkFlower, Program.Garden .SunFlower};
 
+            if (HowmuchInt > Flowers[ChooseflowerInt-1])
+            {
+                Console.WriteLine($"We haven't this flower {HowMuch}.");
+            }
+            else
+            {
+                switch (ChooseflowerInt)
+                {
+                    case 1:
+                        Program.Students[StudentNumber].BlueFlower += HowmuchInt;
+                        Program.Garden.BlueFlower -= HowmuchInt;
+                        break;
+                    case 2:
+                        Program.Students[StudentNumber].GrayFlower += HowmuchInt;
+                        Program.Garden.GrayFlower -= HowmuchInt;
+                        break;
+                    case 3:
+                        Program.Students[StudentNumber].RedFlower += HowmuchInt;
+                        Program.Garden.RedFlower -= HowmuchInt;
+                        break;
+                    case 4:
+                        Program.Students[StudentNumber].YellowFlower += HowmuchInt;
+                        Program.Garden.YellowFlower -= HowmuchInt;
+                        break;
+                    case 5:
+                        Program.Students[StudentNumber].GreenFlower += HowmuchInt;
+                        Program.Garden.GreenFlower -= HowmuchInt;
+                        break;
+                    case 6:
+                        Program.Students[StudentNumber].PinkFlower += HowmuchInt;
+                        Program.Garden.PinkFlower -= HowmuchInt;
+                        break;
+                    case 7:
+                        Program.Students[StudentNumber].SunFlower += HowmuchInt;
+                        Program.Garden.SunFlower -= HowmuchInt;
+                        break;
+                }
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("\nThe plants picked up successfuly.");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
         }
         //Course
         public void ChooseCourse(Student Student, int Whichone)
@@ -192,7 +208,7 @@ namespace Hogwartz_hoseynzadeh2
             }
             else
             {
-                Program.Students[Whichone].LessonSchedule[Program.Cources[ChoosedCourseNumber].Whichday] = Program.Cources[ChoosedCourseNumber].Name;
+                Program.Students[Whichone].LessonSchedule[Program.Cources[ChoosedCourseNumber].Whichday] = Program.Cources[ChoosedCourseNumber].Name+" with "+Program.Cources[ChoosedCourseNumber].TeaacherOfCource;
                 Program.Teachers[Program.Cources[ChoosedCourseNumber].TeacherNumber].IndexesOfStudents.Add(Whichone);
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("\n\nThe Course, added successfuly!");
@@ -329,6 +345,9 @@ namespace Hogwartz_hoseynzadeh2
             Console.WriteLine($"You are {Stu.Race} and in {Stu.HisGroup.Groupname} group.");
             Console.WriteLine($"You have a cute {Stu.pet}.");
             Console.WriteLine($"Your dorm static code is {Stu.DormOfStudent.StaticCode}.");
+            Program.MyMethods.show(Stu.PassedCourses, "Your passed courses are:");
+            Program.MyMethods.show(Stu.LessonSchedule,"Your lesson schedule in week (1 to 5 is saturday to wednesday):");
+            Console.WriteLine("Press Enter to exit.");        
             Console.ReadKey();
             Console.Clear();
         }

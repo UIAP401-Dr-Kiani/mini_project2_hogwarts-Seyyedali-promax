@@ -103,13 +103,22 @@ namespace Hogwartz_hoseynzadeh2
                 }
                 int Grading = Program.MyMethods.Choise(StudentNames, "Who?") - 1;
                 int Grade = Program.MyMethods.Grading("How much from 20?", 20);
-                if (Grade >= 10)
+                bool Ispassed = false;
+                for (int i = 0; i<4;i++)
+                {
+                    if (Program.Students[Program.Teachers[TeacherLoginNumber].IndexesOfStudents[Grading]].PassedCourses[i]== Program.Teachers[TeacherLoginNumber].HisLessons.Name)
+                    {
+                        Ispassed = true;
+                    }
+                }
+                if (Grade >= 10 & !Ispassed)
                 {
                     Program.Students[Program.Teachers[TeacherLoginNumber].IndexesOfStudents[Grading]].Letters.Add($"You passed the {Program.Teachers[TeacherLoginNumber].HisLessons.Name} Course!");
-                    Program.Students[Program.Teachers[TeacherLoginNumber].IndexesOfStudents[Grading]].PassedCourses[Program.Students[Program.Teachers[TeacherLoginNumber].IndexesOfStudents[Grading]].PassedCourses.Length] = Program.Teachers[TeacherLoginNumber].HisLesson;
+                    Program.Students[Program.Teachers[TeacherLoginNumber].IndexesOfStudents[Grading]].PassedCourses[(Program.Students[Program.Teachers[TeacherLoginNumber].IndexesOfStudents[Grading]].PassedCoursesInt)] = Program.Teachers[TeacherLoginNumber].HisLessons.Name;
+                    Program.Students[Program.Teachers[TeacherLoginNumber].IndexesOfStudents[Grading]].PassedCoursesInt++;
                     Program.Students[Program.Teachers[TeacherLoginNumber].IndexesOfStudents[Grading]].LessonSchedule[Program.Teachers[TeacherLoginNumber].HisLessons.Whichday] = "";
                 }
-                else
+                else if (Grade<10)
                 {
                     Program.Students[Program.Teachers[TeacherLoginNumber].IndexesOfStudents[Grading]].Letters.Add($"You failed the {Program.Teachers[TeacherLoginNumber].HisLessons.Name} Course!");
                 }
