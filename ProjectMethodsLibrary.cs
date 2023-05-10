@@ -10,7 +10,7 @@ namespace Hogwartz_hoseynzadeh2
     class ProjectMethodsLibrary
     {
         //Show
-       public void show(string[] Members, string Introduction)
+        public void show(string[] Members, string Introduction)
         {
             Console.WriteLine(Introduction + "\n--------------------\n");
             for (int i = 0; i < Members.Length; i++)
@@ -34,9 +34,9 @@ namespace Hogwartz_hoseynzadeh2
             while (1 == 1)
             {
                 Console.WriteLine("--------------------\n" + Ask + "\n--------------------");
-                for (int i =0; i < Choises.Length; i++)
+                for (int i = 0; i < Choises.Length; i++)
                 {
-                    Console.WriteLine($"({i+1}) {Choises[i]}");
+                    Console.WriteLine($"({i + 1}) {Choises[i]}");
                 }
 
                 Choise = (Console.ReadLine());
@@ -98,7 +98,7 @@ namespace Hogwartz_hoseynzadeh2
                         //Human vars
                         Program.Students[Program.StudentIndex].Name = Human[0];
                         Program.Students[Program.StudentIndex].Family = Human[1];
-                        Program.Students[Program.StudentIndex].BirthYear = Convert.ToString( Human[2][0])+ Convert.ToString(Human[2][1])+ Convert.ToString(Human[2][2])+ Convert.ToString(Human[2][3]);
+                        Program.Students[Program.StudentIndex].BirthYear = Convert.ToString(Human[2][0]) + Convert.ToString(Human[2][1]) + Convert.ToString(Human[2][2]) + Convert.ToString(Human[2][3]);
                         Program.Students[Program.StudentIndex].gender = Human[3];
                         Program.Students[Program.StudentIndex].FatherName = Human[4];
                         Program.Students[Program.StudentIndex].Username = Human[5];
@@ -144,7 +144,7 @@ namespace Hogwartz_hoseynzadeh2
         public string PetDeterminator(AouthorizedHuman Applicant)
         {
             string pet = " ";
-            int RandomNumber = Convert.ToInt32(Applicant.Name[0]) + Convert.ToInt32(Applicant.Password[0]) + 14;
+            int RandomNumber = Convert.ToInt32(Applicant.Name[0]) + Convert.ToInt32(Applicant.Family[0]) + 8;
             Random Rnd = new Random(RandomNumber);
             switch (Rnd.Next(RandomNumber) % 4)
             {
@@ -176,78 +176,78 @@ namespace Hogwartz_hoseynzadeh2
             if (Applicant.gender == "male" && Applicant.HisGroup.Groupname == "Gryffindor")
             {
                 Result.GroupOfDorm = Program.Gryffindor;
-                Result.Floor = 1 + Program.GryffindorMaleDormMembers % (4 * 20);
-                Result.Room = 1 + Program.GryffindorMaleDormMembers % (20);
-                Result.Bed = 1 + Program.GryffindorMaleDormMembers % 4;
+                Result.Floor = 1 + Convert.ToInt32(Math.Floor(Convert.ToDouble(Program.GryffindorMaleDormMembers) / Convert.ToDouble(4 * 20)));
+                Result.Room = 1 + Convert.ToInt32(Math.Floor(Convert.ToDouble((Program.GryffindorMaleDormMembers % 80)) / Convert.ToDouble(4)));
+                Result.Bed = 1 + Convert.ToInt32(Math.Floor(Convert.ToDouble((Program.GryffindorMaleDormMembers % 80) % 20) % 4));
                 Program.GryffindorMaleDormMembers++;
             }
             if (Applicant.gender == "female" && Applicant.HisGroup.Groupname == "Gryffindor")
             {
 
                 Result.GroupOfDorm = Program.Gryffindor;
-                Result.Floor = 1 + Program.GryffindorFemaleDormMembers % (4 * 20);
-                Result.Room = 1 + Program.GryffindorFemaleDormMembers % (20);
-                Result.Bed = 1 + Program.GryffindorFemaleDormMembers % 4;
+                Result.Floor = 1 + Convert.ToInt32(Math.Floor(Convert.ToDouble(Program.GryffindorFemaleDormMembers) / Convert.ToDouble(4 * 20)));
+                Result.Room = 1 + Convert.ToInt32(Math.Floor(Convert.ToDouble((Program.GryffindorFemaleDormMembers % 80)) / Convert.ToDouble(4)));
+                Result.Bed = 1 + Convert.ToInt32(Math.Floor(Convert.ToDouble((Program.GryffindorFemaleDormMembers % 80) % 20) % 4));
                 Program.GryffindorFemaleDormMembers++;
             }
             if (Applicant.gender == "male" && Applicant.HisGroup.Groupname == "Hufflepuff")
             {
                 Result.GroupOfDorm = Program.Hufflepuff;
-                Result.Floor = 1 + Program.HufflepuffMaleDormMembers % (4 * 20);
-                Result.Room = 1 + Program.HufflepuffMaleDormMembers % (20);
-                Result.Bed = 1 + Program.HufflepuffMaleDormMembers % 4;
+                Result.Floor = 1 + Convert.ToInt32(Math.Floor(Convert.ToDouble(Program.HufflepuffMaleDormMembers) / Convert.ToDouble(4 * 20)));
+                Result.Room = 1 + Convert.ToInt32(Math.Floor(Convert.ToDouble((Program.HufflepuffMaleDormMembers % 80)) / Convert.ToDouble(4)));
+                Result.Bed = 1 + Convert.ToInt32(Math.Floor(Convert.ToDouble((Program.HufflepuffMaleDormMembers % 80) % 20) % 4));
                 Program.HufflepuffMaleDormMembers++;
             }
             if (Applicant.gender == "female" && Applicant.HisGroup.Groupname == "Hufflepuff")
             {
 
                 Result.GroupOfDorm = Program.Hufflepuff;
-                Result.Floor = 1 + Program.HufflepuffFemaleDormMembers % (4 * 20);
-                Result.Room = 1 + Program.HufflepuffFemaleDormMembers % (20);
-                Result.Bed = 1 + Program.HufflepuffFemaleDormMembers % 4;
+                Result.Floor = 1 + Convert.ToInt32(Math.Floor(Convert.ToDouble(Program.HufflepuffFemaleDormMembers) / Convert.ToDouble(4 * 20)));
+                Result.Room = 1 + Convert.ToInt32(Math.Floor(Convert.ToDouble((Program.HufflepuffFemaleDormMembers % 80)) / Convert.ToDouble(4)));
+                Result.Bed = 1 + Convert.ToInt32(Math.Floor(Convert.ToDouble((Program.HufflepuffFemaleDormMembers % 80) % 20) % 4));
                 Program.HufflepuffFemaleDormMembers++;
             }
             if (Applicant.gender == "male" && Applicant.HisGroup.Groupname == "Ravenclaw")
             {
 
                 Result.GroupOfDorm = Program.Ravenclaw;
-                Result.Floor = 1 + Program.RavenclawMaleDormMembers % (4 * 20);
-                Result.Room = 1 + Program.RavenclawMaleDormMembers % (20);
-                Result.Bed = 1 + Program.RavenclawMaleDormMembers % 4;
+                Result.Floor = 1 + Convert.ToInt32(Math.Floor(Convert.ToDouble(Program.RavenclawMaleDormMembers) / Convert.ToDouble(4 * 20)));
+                Result.Room = 1 + Convert.ToInt32(Math.Floor(Convert.ToDouble((Program.RavenclawMaleDormMembers % 80)) / Convert.ToDouble(4)));
+                Result.Bed = 1 + Convert.ToInt32(Math.Floor(Convert.ToDouble((Program.RavenclawMaleDormMembers % 80) % 20) % 4));
                 Program.RavenclawMaleDormMembers++;
             }
             if (Applicant.gender == "female" && Applicant.HisGroup.Groupname == "Ravenclaw")
             {
 
                 Result.GroupOfDorm = Program.Ravenclaw;
-                Result.Floor = 1 + Program.RavenclawFemaleDormMembers % (4 * 20);
-                Result.Room = 1 + Program.RavenclawFemaleDormMembers % (20);
-                Result.Bed = 1 + Program.RavenclawFemaleDormMembers % 4;
+                Result.Floor = 1 + Convert.ToInt32(Math.Floor(Convert.ToDouble(Program.RavenclawFemaleDormMembers) / Convert.ToDouble(4 * 20)));
+                Result.Room = 1 + Convert.ToInt32(Math.Floor(Convert.ToDouble((Program.RavenclawFemaleDormMembers % 80)) / Convert.ToDouble(4)));
+                Result.Bed = 1 + Convert.ToInt32(Math.Floor(Convert.ToDouble((Program.RavenclawFemaleDormMembers % 80) % 20) % 4));
                 Program.RavenclawFemaleDormMembers++;
             }
             if (Applicant.gender == "male" && Applicant.HisGroup.Groupname == "Slytherin")
             {
 
                 Result.GroupOfDorm = Program.Slytherin;
-                Result.Floor = 1 + Program.SlytherinMaleDormMembers % (4 * 20);
-                Result.Room = 1 + Program.SlytherinMaleDormMembers % (20);
-                Result.Bed = 1 + Program.SlytherinMaleDormMembers % 4;
+                Result.Floor = 1 + Convert.ToInt32(Math.Floor(Convert.ToDouble(Program.SlytherinMaleDormMembers) / Convert.ToDouble(4 * 20)));
+                Result.Room = 1 + Convert.ToInt32(Math.Floor(Convert.ToDouble((Program.SlytherinMaleDormMembers % 80)) / Convert.ToDouble(4)));
+                Result.Bed = 1 + Convert.ToInt32(Math.Floor(Convert.ToDouble((Program.SlytherinMaleDormMembers % 80) % 20) % 4));
                 Program.SlytherinMaleDormMembers++;
             }
             if (Applicant.gender == "female" && Applicant.HisGroup.Groupname == "Slytherin")
             {
 
                 Result.GroupOfDorm = Program.Slytherin;
-                Result.Floor = 1 + Program.SlytherinFemaleDormMembers % (4 * 20);
-                Result.Room = 1 + Program.SlytherinFemaleDormMembers % (20);
-                Result.Bed = 1 + Program.SlytherinFemaleDormMembers % 4;
+                Result.Floor = 1 + Convert.ToInt32(Math.Floor(Convert.ToDouble(Program.SlytherinFemaleDormMembers) / Convert.ToDouble(4 * 20)));
+                Result.Room = 1 + Convert.ToInt32(Math.Floor(Convert.ToDouble((Program.SlytherinFemaleDormMembers % 80)) / Convert.ToDouble(4)));
+                Result.Bed = 1 + Convert.ToInt32(Math.Floor(Convert.ToDouble((Program.SlytherinFemaleDormMembers % 80) % 20) % 4));
                 Program.SlytherinFemaleDormMembers++;
             }
             Result.StaticCode = Result.Gender * 1000 + Result.Floor * 100 + Result.Room * 10 + Result.Bed * 1;
             return Result;
         }
         //Grading
-        public int Grading(string Ask,int max)
+        public int Grading(string Ask, int max)
         {
             string Choise;
             int ChoiseInt = 0;
@@ -280,16 +280,16 @@ namespace Hogwartz_hoseynzadeh2
             return ChoiseInt;
         }
         //Delay after process
-        public void DelayRerun (int Time)
+        public void DelayRerun(int Time)
         {
             Console.Write("\n");
             Console.ForegroundColor = ConsoleColor.Yellow;
-            for (int i = 0; i<Time;i++)
+            for (int i = 0; i < Time; i++)
             {
-            Console.WriteLine($"You will be returned to the previous window after {Time-i} seconds.");
-            System.Threading.Thread.Sleep(1000);
+                Console.WriteLine($"You will be returned to the previous window after {Time - i} seconds.");
+                System.Threading.Thread.Sleep(1000);
                 Console.SetCursorPosition(0, Console.CursorTop - 1);
-                Console.Write(new string(' ',Console.WindowWidth));
+                Console.Write(new string(' ', Console.WindowWidth));
                 Console.SetCursorPosition(0, Console.CursorTop - 1);
 
             }
